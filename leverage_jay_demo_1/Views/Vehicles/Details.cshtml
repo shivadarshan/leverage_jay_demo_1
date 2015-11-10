@@ -1,0 +1,66 @@
+﻿@model leverage_jay_demo_1.Models.Vehicle_dm
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehicle_dm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Registration_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registration_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Covered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Covered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

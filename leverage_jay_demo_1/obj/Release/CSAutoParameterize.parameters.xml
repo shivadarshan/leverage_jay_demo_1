@@ -1,2 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters />
+<parameters>
+  <parameter name="leverage_jay_demo_1.Models.Vehicle_dmDBContext-Web.config Connection String" description="leverage_jay_demo_1.Models.Vehicle_dmDBContext Connection String used in web.config by the application to access the database." defaultValue="leverage_jay_demo_1.Models.Vehicle_dmDBContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\vijay_000\\documents\\visual\ studio\ 2013\\Projects\\leverage_jay_demo_1\\leverage_jay_demo_1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='leverage_jay_demo_1.Models.Vehicle_dmDBContext']/@connectionString" />
+  </parameter>
+  <parameter name="leverage_jay_demo_1.Models.Vehicle_dmDBContext_DatabasePublish-Web.config Connection String" description="leverage_jay_demo_1.Models.Vehicle_dmDBContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="leverage_jay_demo_1.Models.Vehicle_dmDBContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\vijay_000\\documents\\visual\ studio\ 2013\\Projects\\leverage_jay_demo_1\\leverage_jay_demo_1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='leverage_jay_demo_1.Models.Vehicle_dmDBContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>
