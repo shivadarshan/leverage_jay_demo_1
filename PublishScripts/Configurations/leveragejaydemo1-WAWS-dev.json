@@ -1,0 +1,21 @@
+{
+    "environmentSettings": {
+        "webSite": {
+            "name": "leveragejaydemo1",
+            "location": "East Asia"
+        },
+        "databases": [
+            {
+                "connectionStringName": "DefaultConnection",
+                "databaseName": "leveragejaydemo1_db",
+                "serverName": "leverageserver1",
+                "user": "dbuser_jay_1",
+                "password": "",
+                "edition": "",
+                "size": "",
+                "collation": "",
+                "location": "East Asia"
+            }
+        ]
+    }
+}
