@@ -6,7 +6,9 @@ using System.Data;
 using System.Data.Entity;
 
 
+
 using System.ComponentModel.DataAnnotations; //this is for data validation
+using System.Web.Mvc; //this is for Remote validation of uniqueness
 
 
 namespace leverage_jay_demo_1.Models
@@ -29,6 +31,7 @@ namespace leverage_jay_demo_1.Models
         //this will also make the DB enable the NOT NULL attribute
         //ASP will take care of both the DB NOT NULL settings and also the user side validation
         [Required]
+        [Remote("IsRegistration_NumberExists", "Vehicles", ErrorMessage = "Vehicle with this registration number already exists")]
         public string Registration_Number { get; set; }
 
         //manufacturer - going with string 

@@ -123,5 +123,17 @@ namespace leverage_jay_demo_1.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+        //function that will check for uniqueness of the Registration_Number property
+
+
+        public JsonResult IsRegistration_NumberExists(string Registration_Number)
+        {
+            //now checking if Registration_Number mathes the Registration_Number specified in the parameter
+            //to achieve this, I am going to use the ANY extension method
+
+            return Json(!db.Vehicle_dms.Any(x => x.Registration_Number == Registration_Number) , JsonRequestBehavior.AllowGet);
+        }
+
+    }//end of class definition
 }
