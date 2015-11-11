@@ -54,7 +54,9 @@ namespace leverage_jay_demo_1.Models
         //rcbook - this will be an image path - for now keeping it string
         //this is required
 
-        [Required]
+        //update
+        //for now, i am making the image optional to overcome upload issues
+
         public string Image_Path { get; set; }
         //need a variable to store the image size
         //this will be a long value

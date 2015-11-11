@@ -128,6 +128,10 @@
     <Compile Include="Migrations\201511101506396_AddDataAnnotationsMig.Designer.cs">
       <DependentUpon>201511101506396_AddDataAnnotationsMig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511110823551_changeimage.cs" />
+    <Compile Include="Migrations\201511110823551_changeimage.Designer.cs">
+      <DependentUpon>201511110823551_changeimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle_dm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,10 +178,12 @@
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Vehicles\ImageUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
     <Folder Include="App_Data\Vehicles\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -189,6 +195,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511101506396_AddDataAnnotationsMig.resx">
       <DependentUpon>201511101506396_AddDataAnnotationsMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511110823551_changeimage.resx">
+      <DependentUpon>201511110823551_changeimage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

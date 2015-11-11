@@ -15,6 +15,25 @@ namespace leverage_jay_demo_1.Controllers
     {
         private Vehicle_dmDBContext db = new Vehicle_dmDBContext();
 
+
+        // GET : Vehicles/ImageUpload/5
+
+        public ActionResult ImageUpload(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Vehicle_dm vehicle_dm = db.Vehicle_dms.Find(id);
+            if (vehicle_dm == null)
+            {
+                return HttpNotFound();
+            }
+            return View(vehicle_dm);
+        }
+
+
+
         // GET: Vehicles
         public ActionResult Index()
         {
@@ -44,52 +63,60 @@ namespace leverage_jay_demo_1.Controllers
             return View();
         }
 
+
+
+        // POST: Vehicles/Upload
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ImageUpload(HttpPostedFileBase file, Vehicle_dm vehicle_dm)
+        {
+                if (file != null && file.ContentLength > 0)
+                    try
+                    {
+                        string path = Path.Combine(Server.MapPath("~/Images"), Path.GetFileName(vehicle_dm.Registration_Number+file.FileName));
+                        file.SaveAs(path);
+                        vehicle_dm.Image_Path = vehicle_dm.Registration_Number + file.FileName;
+                        ViewBag.Message = "File uploaded successfully with the file name " + vehicle_dm.Image_Path;
+
+                        //let me save the data object to the database now that the image path has been updated
+                        db.Entry(vehicle_dm).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    }
+                else
+                {
+                    ViewBag.Message = "You have not specified a file.";
+                }
+            return View();  
+        }
+
+
+
+
         // POST: Vehicles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Registration_Number,Manufacturer,Vehicle_Model,Covered,Image_Path,ReleaseDate")] Vehicle_dm vehicle_dm)
+        public ActionResult Create([Bind(Include = "ID,Registration_Number,Manufacturer,Vehicle_Model,Covered,Image_Path,ReleaseDate")] Vehicle_dm vehicle_dm, HttpPostedFileBase file)
         {
+            if (file != null && file.ContentLength > 0)
+            {
+                var error = "file exists";
+            }
+
+            else
+            {
+                var error = "file does not exist";
+            }            
+
             if (ModelState.IsValid)
             {
                 
-                if(HttpContext.Request.Files.AllKeys.Any())
-                {
-                    var file = HttpContext.Request.Files[0];
-                    
-                    //let me check if the file is not empty
-                    if (file != null)
-                    {
-                        //let me check if the image has been uploaded is valid and add it to the server
-
-                        if (file.ContentLength > 0)
-                        {
-                            var fileName = Path.GetFileName(file.FileName);
-                            var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                            file.SaveAs(path);
-                        }
-                        else
-                        {
-                            //if you are here, that means file is an empty file
-                            vehicle_dm.Image_Path = "file isn't null but image corrupted";
-                        }
-
-                    }
-                    else
-                    {
-                        //if you are here, that means file is null
-                        vehicle_dm.Image_Path = "file was null :(";
-                    }
-                
-                }
-                else
-                {
-                    //this means, nothign was uploaded by user
-                    vehicle_dm.Image_Path = "seriously nothing was uploaded :(";
-                }
-                
-                
+               
                 //saving the model object to the database
                 
                 db.Vehicle_dms.Add(vehicle_dm);

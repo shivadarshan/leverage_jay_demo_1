@@ -53,9 +53,11 @@
             @Html.DisplayFor(modelItem => item.ReleaseDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit Vehicle", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Vehicle Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete  Vehicle", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Upload Image", "ImageUpload", new { id=item.ID})
+            
         </td>
     </tr>
 }
