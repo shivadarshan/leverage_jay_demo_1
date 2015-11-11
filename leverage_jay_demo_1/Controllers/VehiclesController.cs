@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using leverage_jay_demo_1.Models;
 
 namespace leverage_jay_demo_1.Controllers
@@ -35,6 +36,8 @@ namespace leverage_jay_demo_1.Controllers
             return View(vehicle_dm);
         }
 
+        
+       
         // GET: Vehicles/Create
         public ActionResult Create()
         {
@@ -50,6 +53,45 @@ namespace leverage_jay_demo_1.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+                if(HttpContext.Request.Files.AllKeys.Any())
+                {
+                    var file = HttpContext.Request.Files[0];
+                    
+                    //let me check if the file is not empty
+                    if (file != null)
+                    {
+                        //let me check if the image has been uploaded is valid and add it to the server
+
+                        if (file.ContentLength > 0)
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                            file.SaveAs(path);
+                        }
+                        else
+                        {
+                            //if you are here, that means file is an empty file
+                            vehicle_dm.Image_Path = "file isn't null but image corrupted";
+                        }
+
+                    }
+                    else
+                    {
+                        //if you are here, that means file is null
+                        vehicle_dm.Image_Path = "file was null :(";
+                    }
+                
+                }
+                else
+                {
+                    //this means, nothign was uploaded by user
+                    vehicle_dm.Image_Path = "seriously nothing was uploaded :(";
+                }
+                
+                
+                //saving the model object to the database
+                
                 db.Vehicle_dms.Add(vehicle_dm);
                 db.SaveChanges();
                 return RedirectToAction("Index");

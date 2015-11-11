@@ -56,6 +56,12 @@ namespace leverage_jay_demo_1.Models
 
         [Required]
         public string Image_Path { get; set; }
+        //need a variable to store the image size
+        //this will be a long value
+
+
+
+
         //insurance expiry date - going with date type 
         //this is required
 

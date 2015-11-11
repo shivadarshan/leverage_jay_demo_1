@@ -29,4 +29,3 @@ c:\users\vijay_000\documents\visual studio 2013\Projects\leverage_jay_demo_1\lev
 c:\users\vijay_000\documents\visual studio 2013\Projects\leverage_jay_demo_1\leverage_jay_demo_1\bin\EntityFramework.SqlServer.xml
 c:\users\vijay_000\documents\visual studio 2013\Projects\leverage_jay_demo_1\leverage_jay_demo_1\obj\Debug\leverage_jay_demo_1.Migrations.AddDataAnnotationsMig.resources
 c:\users\vijay_000\documents\visual studio 2013\Projects\leverage_jay_demo_1\leverage_jay_demo_1\obj\Debug\leverage_jay_demo_1.csproj.GenerateResource.Cache
-c:\users\vijay_000\documents\visual studio 2013\Projects\leverage_jay_demo_1\leverage_jay_demo_1\obj\Debug\leverage_jay_demo_1.csprojResolveAssemblyReference.cache
