@@ -58,7 +58,8 @@
             @Html.DisplayFor(model => model.ReleaseDate)
         </dd>
 
-    </dl>
+</dl>
+    <img src="@Url.Content("~/Images/" + Model.Image_Path)" alt="vehicle image will come here" />
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
